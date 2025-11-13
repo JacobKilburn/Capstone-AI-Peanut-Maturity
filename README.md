@@ -1,7 +1,8 @@
 # Capstone-AI-Peanut-Maturity
 
 ## Dependencies
-Copy and paste into terminal
+Copy and paste into terminal.
+
 You may or may not use "pip" instead of "pip3"
 
 ```bash 
