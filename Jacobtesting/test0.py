@@ -16,7 +16,14 @@ image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
 # ---- 3. Generate automatic masks ----
-mask_generator = SamAutomaticMaskGenerator(sam)
+# mask_generator = SamAutomaticMaskGenerator(sam)
+mask_generator = SamAutomaticMaskGenerator(
+    model=sam,
+    points_per_side=32,           # default grid resolution (higher → more detailed)
+    pred_iou_thresh=0.88,         # default confidence threshold for masks
+    stability_score_thresh=0.95,  # default stability filter (lower → more masks)
+    points_per_batch=64           # batch size for processing points
+)
 masks = mask_generator.generate(image)
 
 # ---- 4. Combine masks into a single overlay ----
