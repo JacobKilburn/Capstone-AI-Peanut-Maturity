@@ -5,13 +5,13 @@ import numpy as np
 import os
 
 # ---- 1. Load the SAM model ----
-sam_checkpoint = "sam_vit_h_4b8939.pth"  # Download from SAM GitHub if you don't have it
+sam_checkpoint = "sam_vit_h_4b8939.pth"  # Download from SAM GitHub if you don't have it (link in readme)
 model_type = "vit_h"
 sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
-sam.to("cpu")  # Use "cpu" if no GPU
+sam.to("cpu")  # Use "cpu" if no GPU or "cuda" if nvidia gpu
 
 # ---- 2. Load your image ----
-image_path = "images/peanuts1.jpeg"
+image_path = "images_before/peanuts4.jpeg"
 image = cv2.imread(image_path)
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
@@ -21,9 +21,9 @@ masks = mask_generator.generate(image)
 
 # ---- 4. Combine masks into a single overlay ----
 # Set your size thresholds in pixels
-min_size = 700   # reject anything smaller than this
+min_size = 800   # reject anything smaller than this
 max_size = 5000  # reject anything larger than this
-min_circularity = 0.7
+min_circularity = 0.7 # 1 is a perfect circle, 0 is a line
 
 overlay = np.zeros(image.shape[:2], dtype=np.uint8)
 for mask in masks:
