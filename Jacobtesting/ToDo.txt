@@ -9,11 +9,20 @@ Extract color statistics (done (mean, std, and median))
 ML model (Random Forest / XGBoost)
       ⮑ Place good images into folder (done)
       ⮑ Put extracted data into a np array to be saved post run (done)
-      ⮑ Use np.load() to bring back saved data 
-      ⮑ Define random forest (See below)
-      ⮑ Compare CV performance
+      ⮑ Use np.load() to bring back saved data (done)
+      ⮑ Define random forest (See below) (done)
+      ⮑ Compare CV performance (done)
    ↓
-Harvest timing prediction
+Harvest timing prediction (done)
+
+Create .env for api token security
+
+create weather app to supply info
+
+call file in backend wrapper and 
+
+
+
 
 
 For lab computer

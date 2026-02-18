@@ -7,3 +7,5 @@ pip3 install torch torchvision
 https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
 
 pip install scikit-learn
+
+pip install requests pandas python-dotenv geopy
